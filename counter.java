@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class counter extends Actor
 {
     GreenfootImage image = new GreenfootImage(100,10);
-    public scoreKeeper()
+    public counter()
     {
         setImage(image);
     }
@@ -20,7 +20,7 @@ public class counter extends Actor
     public void act()
     {
         image.clear();
-        image.drawString(((doodleWorld) getWorld()).height + " doodles.", 10,10);
+        image.drawString(((MyWorld) getWorld()).height + " doodles.", 10,10);
         setImage(image);
     }
 }

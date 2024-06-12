@@ -27,10 +27,10 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false);
         
-        addObject(new ground(), 56, 317);
-        addObject(new doodler(false), 56,200);
+        addObject(new platform(), 56, 317);
+        addObject(new character(false), 56,200);
         setPaintOrder(counter.class, character.class, platform.class, bullet.class);
-        setBackground("title.png");
+        setBackground("images/background.jpg");
         getBackground().setTransparency(255);
         once = true;
         started = false;
@@ -41,23 +41,23 @@ public class MyWorld extends World
     }
     public void act()
     {
-        {if (Greenfoot.getRandomNumber(1000) > 998 & started==true)
+        if(Greenfoot.getRandomNumber(1000) > 998 & started==true)
             {
                 int x = Greenfoot.getRandomNumber(300);
                 int y = Greenfoot.getRandomNumber(150);
                 addObject(new enemy1(), x, y);
             }
     
-            { if (Greenfoot.getRandomNumber(1000) > 998 & started==true)
-                {
-                    int x = Greenfoot.getRandomNumber(300);
-                    int y = Greenfoot.getRandomNumber(150);
-                    addObject(new enemy2(), x, y);
-                }
+        if (Greenfoot.getRandomNumber(1000) > 998 & started==true)
+            {
+                int x = Greenfoot.getRandomNumber(300);
+                int y = Greenfoot.getRandomNumber(150);
+                addObject(new enemy2(), x, y);
             }
+        
        
         // click mouse button to start game    
-        if(bStarted==fakse & Greenfoot,mouseMoved(this))
+        if(bStarted==false & Greenfoot.mouseMoved(this))
             {
                 bStarted = true;
             }
@@ -69,7 +69,7 @@ public class MyWorld extends World
             if(Greenfoot.mouseClicked(this))
             {
                 if(mouse.getX()>=50 & mouse.getY()<=145
-                && mouse.getY>=150 & mouse.getY()<=230)
+                && mouse.getY()>=150 & mouse.getY()<=230)
                 {
                     started = true;
                 }
@@ -97,14 +97,14 @@ public class MyWorld extends World
     public void cleanup()
     {
         removeObjects(getObjects(character.class));
-        removeObject(getObjects(platform.class));
+        removeObjects(getObjects(platform.class));
     }
     
     public void setLevel(int level)
     {
         switch(level)
         {
-            case 1; gamePlay(); break;
+            case 1: gamePlay(); break;
         }
     }
     
@@ -122,7 +122,7 @@ public class MyWorld extends World
         addObject(new platform(), Greenfoot.getRandomNumber(300), 250);
         addObject(new platform(), Greenfoot.getRandomNumber(300), 150);
         addObject(new platform(), Greenfoot.getRandomNumber(300), 50);
-        addObject(new counter(), 253 385);
+        addObject(new counter(), 253, 385);
     }
     
     public void end()
@@ -142,4 +142,4 @@ public class MyWorld extends World
         killed = false;
         ended = false;
     }
-
+}

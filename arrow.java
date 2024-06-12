@@ -19,6 +19,6 @@ public class arrow extends Actor
     // When character off screen show where with arrow
     public void act()
     {
-        setLocation(((Myworld) getWorld()).characterX, 20);
+        setLocation(((MyWorld) getWorld()).characterX, 20);
     }
 }

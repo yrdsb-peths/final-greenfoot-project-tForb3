@@ -52,16 +52,16 @@ public class platform extends Actor
         if(((MyWorld) getWorld()).ended==false)
         {
             y_pos = y_pos + speed;
-            setLocation(x_pos, y_pos)
+            setLocation(x_pos, y_pos);
         }
     }
     
-    public ground()
+    public platform()
     {
-        hasBeenBounced=false;
+        hasBeenBounced = false;
     }
     
-    public ground(boolean bouncable)
+    public platform(boolean bouncable)
     {
         hasBeenBounced=true;
     }

@@ -11,16 +11,18 @@ public class character extends Actor
     float ys, xs;
     int x,y;
     boolean canMove;
-    GreenFootImage left = new GreenfootImage("doodler.png");
-    GreenFootImage right = new Greenfootimage("doodler.png");
-    GreenfootImage shooting = new GreenfootImage("shooting.png");
-    ground Ground = new ground();
-    int scrollSpeed
+    GreenfootImage left = new GreenfootImage("images/pig.png");
+    GreenfootImage right = new GreenfootImage("images/pig.png");
+   
+    GreenfootImage shooting = new GreenfootImage("images/pig.png");
+    platform Platform = new platform();
+    int scrollSpeed;
     int hits = 0;
     /**
      * Act - do whatever the Playable_Character wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+   
     
     public character()
     {
@@ -47,11 +49,11 @@ public class character extends Actor
         
         ((MyWorld) getWorld()).characterX = getX();
         
-        if)))MyWorld) getWorld()).fall==false)
+        if(((MyWorld) getWorld()).fall==false)
         {
             bounce();
         }
-        if(canMve)
+        if(canMove)
         {
             keys();
         }
@@ -74,9 +76,11 @@ public class character extends Actor
             fall();
         }
         
-        ((MyWorld) getWorld()).height = hitsl
+        ((MyWorld) getWorld()).height = hits;
         
         scout();
+        
+        
     }
     
     
@@ -87,17 +91,17 @@ public class character extends Actor
     
     public void bounce()
     {
-        ground Groyund = (ground) getOneIntersectingObject(ground.class);
-        if(Ground != null & ys > 0)
+        platform Platform = (platform) getOneIntersectingObject(platform.class);
+        if(Platform != null & ys > 0)
         {
             ys = -10;
             
-            if(canMove & !Ground.hasBeenBounced)
+            if(canMove & !Platform.hasBeenBounced)
             {
-                Ground.hasBeenBounced=true;
+                Platform.hasBeenBounced=true;
                 {
-                    getWorld().addObject(new ground(), Greenfoot.getRandomNumber(300), 0);
-                    getWorld().addObject(new ground(), Greenfoot.getRandomNumber(300), 70);
+                    getWorld().addObject(new platform(), Greenfoot.getRandomNumber(300), 0);
+                    getWorld().addObject(new platform(), Greenfoot.getRandomNumber(300), 70);
                 }
             }
         }
@@ -119,10 +123,10 @@ public class character extends Actor
         {
             xs = 0;
         }
-        if(Greenfoot.isKeyDown("space") & getWorld().getObjects(ammo.class).isEmpty())
+        if(Greenfoot.isKeyDown("space") & getWorld().getObjects(bullet.class).isEmpty())
         {
             setImage(shooting);
-            getWorld().addObject(new ammo(), x, y);
+            getWorld().addObject(new bullet(), x, y);
         }
     }
 
@@ -143,32 +147,32 @@ public class character extends Actor
     {
         if(y<=200 & y>100)
         {
-            ((doodleWorld) getWorld()).scrollSpeed = (int) -ys;
-            ((doodleWorld) getWorld()).scroll = true;
+            ((MyWorld) getWorld()).scrollSpeed = (int) -ys;
+            ((MyWorld) getWorld()).scroll = true;
             hits++;
         }
         else if(y<=100)
         {
-            ((doodleWorld) getWorld()).scrollSpeed = (int) -ys*2;
-            ((doodleWorld) getWorld()).scroll = true;
+            ((MyWorld) getWorld()).scrollSpeed = (int) -ys*2;
+            ((MyWorld) getWorld()).scroll = true;
             hits++;
         }
         
         else
         {
-            ((doodleWorld) getWorld()).scroll = false;
+            ((MyWorld) getWorld()).scroll = false;
         }
     }
     
     public void fall()
     {
-        ((doodleWorld) getWorld()).fall = true;
-        ((doodleWorld) getWorld()).scrollSpeed = (int) -ys;
+        ((MyWorld) getWorld()).fall = true;
+        ((MyWorld) getWorld()).scrollSpeed = (int) -ys;
     }
     
     public void scout()
     {
-        if(y=0 & getWorld().getObjects(arrow.class).isEmpty())
+        if(y<0 & getWorld().getObjects(arrow.class).isEmpty())
         {
             getWorld().addObject(new arrow(), getX(), 20);
         }

@@ -9,6 +9,7 @@ class.platform.image=castle.png
 dependency1.from=MyWorld
 dependency1.to=enemy1
 dependency1.type=UsesDependency
+dependency2.from=MyWorld
 dependency2.to=enemy2
 dependency2.type=UsesDependency
 dependency3.from=MyWorld

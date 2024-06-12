@@ -27,10 +27,7 @@ public class bullet extends Actor
         {
             kill2();
         }
-        if(foundEnemy3())
-        {
-            kill2();
-        }
+
         if(removed)
         {
             return;
@@ -62,12 +59,6 @@ public class bullet extends Actor
         return enemy2 != null;
     }
     
-    public boolean foundEnemy3)
-    {
-        Actor enemy3 = getOneObjectAtOffset(0, 0, enemy3.class);
-        return enemy3 != null;
-    }
-    
     public void kill1()
     {
         Actor enemy1 = getOneObjectAtOffset(0, 0, enemy1.class);
@@ -86,12 +77,4 @@ public class bullet extends Actor
         }
     }
     
-    public void kill3()
-    {
-        Actor enemy3 = getOneObjectAtOffset(0, 0, enemy3.class);
-        if(enemy3 != null)
-        {
-            getWorld().removeObject(enemy3);
-        }
-    }
 }

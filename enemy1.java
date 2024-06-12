@@ -14,6 +14,35 @@ public class enemy1 extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        lookCharacter();
+        kill1();
+    }
+    
+    public void lookCharacter()
+    {
+        if(isTouching(character.class))
+        {
+            removeTouching(character.class);
+            killed();
+        }
+        else
+        {
+            move(1);
+        }
+    }
+    
+    public void killed()
+    {
+        ((MyWorld) getWorld()).killed = true;
+    }
+    
+    public void kill1()
+    {
+        int x = getX();
+        
+        if(x==getWorld().getWidth()-1)
+        {
+            Actor enemy1 = getOneObjectAtOffset(0, 0, enemy1.class);
+        }
     }
 }
