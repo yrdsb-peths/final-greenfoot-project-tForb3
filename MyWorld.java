@@ -18,6 +18,7 @@ public class MyWorld extends World
     boolean killed;
     int height = 0;
     int characterX;
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -25,12 +26,12 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1, false);
+        super(300, 400, 1, false);
         
         addObject(new platform(), 56, 317);
         addObject(new character(false), 56,200);
         setPaintOrder(counter.class, character.class, platform.class, bullet.class);
-        setBackground("images/background.jpg");
+        setBackground("title.jfif");
         getBackground().setTransparency(255);
         once = true;
         started = false;
@@ -68,7 +69,7 @@ public class MyWorld extends World
             
             if(Greenfoot.mouseClicked(this))
             {
-                if(mouse.getX()>=50 & mouse.getY()<=145
+                if(mouse.getX()>=50 & mouse.getX()<=145
                 && mouse.getY()>=150 & mouse.getY()<=230)
                 {
                     started = true;
@@ -133,7 +134,7 @@ public class MyWorld extends World
         addObject(new platform(), 56, 317);
         addObject( new character(false), 56, 200);
         
-        setBackground("title.png");
+        setBackground("title.jfif");
         getBackground().setTransparency(255);
         once = true;
         started = false;

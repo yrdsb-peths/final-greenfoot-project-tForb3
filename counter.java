@@ -20,7 +20,7 @@ public class counter extends Actor
     public void act()
     {
         image.clear();
-        image.drawString(((MyWorld) getWorld()).height + " doodles.", 10,10);
+        image.drawString(((MyWorld) getWorld()).height + " meters", 10,10);
         setImage(image);
     }
 }

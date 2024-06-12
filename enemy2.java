@@ -12,6 +12,12 @@ public class enemy2 extends Actor
      * Act - do whatever the enemy2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    public enemy2()
+    {
+        
+    }
+    
     public void act()
     {
         lookCharacter();

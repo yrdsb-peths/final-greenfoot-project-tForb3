@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class arrow extends Actor
 {
+
+    
     boolean removed = false;
     
     public arrow()
